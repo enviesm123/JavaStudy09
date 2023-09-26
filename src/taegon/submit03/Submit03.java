@@ -54,7 +54,7 @@ public class Submit03 {
 //        for문 내에서 .substring() 사용
         String stars = "*****"; //
         // 5, 4, 3, 2, 1 나오게 하기
-        for(int i = 5; i+5 > stars.length(); i--){
+        for(int i = 5; i > 0; i--){
 
             // 별을 한개씩 줄여본다
             System.out.println(stars.substring(0, i));
@@ -70,6 +70,16 @@ public class Submit03 {
 //        for문 바깥에 문자열 변수 선언
 //        for문 내부가 반복될때마다 입력받은 문자열을 한글자씩 잘라 문자열 변수에 더한다.
 
+
+        String reVerse = "로꾸꺼 로꾸꺼";
+        // 맨뒤의 글자를 자르기
+        // 잘라서 새로운 문자열에 넣기
+        String name ="";
+        for(int i = 7; i > 0; i--){
+            name += reVerse.substring(i-1, i);
+        }
+        System.out.println("거꾸로 뒤집을 문자열: " + reVerse);
+        System.out.println("뒤집은 결과: " + name);
 
 
 
