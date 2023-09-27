@@ -227,6 +227,157 @@ public class LoopFor {
         System.out.println("슈의 갯수: " + syuCnt);
 
 
+        System.out.println("\n==================\n");
+
+        // break 문
+        // 반복문을 종료시키는데 사용
+        // 반복횟수를 줄여서 실행속도를 향상시키는데 사용
+
+        // 내 이름을 유니코드로 표현한다면?
+        // 유니코드 0 ~ 70000 중에 찾기
+        char word = 0;
+        for(int i = 0; i < 70000; i++){
+            if(word == '곤'){ // 48149 53468 44260
+                System.out.println(i);
+                System.out.println(word);
+                break;
+                // break문이 실행되면 가까운 반복문(for, while)
+                // 하나를 즉시 종료한다.
+            }
+            word++;
+        }
+
+        System.out.println("\n==================\n");
+
+        // continue 문
+
+        // 구구단을 출력하는 중에, 너무 쉬운 1,2,3은 출력 안한다.
+        for(int i= 1; i <= 9; i++){
+            if(i < 4){
+                // 반복문 내에서 continue가 실행되면
+                // 바로 다음 반복문으로 넘어간다.
+                // (continue 아래 코드는 실행되지 않음)
+                continue;
+            }
+            System.out.println("8 x " + i + " = " + (8 * i));
+        }
+
+        System.out.println("\n==================\n");
+
+        // 찐 구구단(2단 ~ 9단) 출력
+        // 2 x 2 = 4
+        // 2 x 3 = 6
+        // 2 x 9 = 18
+        // 3 x 2 = 6
+        // 3 x 9 = 27
+        // 9 x 2 = 18
+        // 9 x 3 = 27
+        // 9 x 9 = 81
+
+        // 이중 for문 사용
+        for(int i = 2; i <= 9; i++){
+            for(int g = 2; g <=9; g++){
+                System.out.println(i + " x " + g + " = " + (i * g));
+            }
+            System.out.println("-----------");
+        }
+
+        /*
+            디버깅 모드
+
+            코드라인 좌측(라인 숫자 적혀있는 부분)을 마우스 좌클릭하면
+            breakpoint가 생성된다.
+
+            생성된 breakpoint는 다시 클릭하면 제거된다.
+
+            breakpoint를 생성한 후 디버깅모드 실행시
+            (상단 벌레모양 버튼 클릭 또는 [Shift + F9])
+            컴퓨터가 코드를 위에서부터 실행되다가 breakpoint가 있는 지점에
+            멈춰서 대기를 한다.
+
+            이후 하단 Debug 탭의 Step Over [F8] 를 실행하면
+            한단계씩 실행이 이루어진다.
+
+
+            코드를 한줄한줄 실행해보며 컴퓨터가 정확히 어디를 실행하고
+            그때마다 변수에 어떤 값이 담기고 있는지 확인할 때 사용
+
+            디버깅 모드 종료하려면 중지버튼(Terminate) [Ctrl + F2]
+         */
+
+        System.out.println("\n==================\n");
+
+        // 트리
+        //     *
+        //    **
+        //   ***
+        //  ****
+        // *****
+        // 규칙찾기
+
+        // i = 0 일때, 공백 4칸 + * 1개
+        // i = 1 일때, 공백 3칸 + * 2개
+        // i = 2 일때, 공백 2칸 + * 3개
+
+        for(int i = 0; i < 5; i++){
+            // i = 0 일때, 공백 4칸 + * 1개
+            // i = 1 일때, 공백 3칸 + * 2개
+            // i = 2 일때, 공백 2칸 + * 3개
+            String blank = "";
+            for(int k = 0; k < 5 - i; k++){
+                blank += " ";
+            }
+            String stars = "";
+            for(int k = 0; k < i + 2; k++){
+                stars += "*";
+            }
+            System.out.println(blank + stars);
+        }
+
+        System.out.println("\n==================\n");
+
+        // 트리
+        //      *
+        //     ***
+        //    *****
+        //   *******
+        //  *********
+
+        for(int i = 0; i < 5 ; i++){
+            String blank1 ="";
+            for(int k = 0; k < 5 - i; k++){
+                blank1 += " ";
+            }
+            String stars1 = "";
+            for(int k = 0; k < i+1; k++){
+                stars1 += "*";
+                if(k >= 1){
+                    stars1 += "*";
+                }
+            }
+            System.out.println(blank1 + stars1 + blank1);
+        }
+
+
+        // @ 회사 면접때 나온 코테문제
+        //      *
+        //     * *
+        //    *   *
+        //   *     *
+        //  *********
+
+        for(int i = 0; i < 5; i++){
+
+        }
+
+        //  *********
+        //   *******
+        //    *****
+        //     ***
+        //      *
+
+
+
 
     }
 }

@@ -23,6 +23,8 @@ public class Submit03 {
           gop1 = gop1 * g; // gop = gop * i
         }
         System.out.println(gop1);
+
+        System.out.println("\n========================\n");
 //        월리를 찾아라!!
 //                아래의 문자열 변수 findWally 중에 월리가 몇개 들어있는지 콘솔에 출력해주세요.
                 String findWally = "윌리울리일리울리울리일리월리일리윌리월리울리일리일리월리일리윌리일리윌리일" +
@@ -30,14 +32,17 @@ public class Submit03 {
 //        Hint
 //        수업시간에 해보았던 "슈"는 문자열을 한글자씩 잘라서 "슈"가 맞는지 비교하였다면,
 //                이번에는 두글자씩 잘라서 "월리"가 맞는지 비교하시면 됩니다.
-//
-//
 //        결과: 5
+
+
         int cntWally = 0;
         for(int i = 0; i < findWally.length()-1; i++){
-            // 두글자씩 자르기 (0,2)(2,4)(4,6)
-            System.out.println(findWally.substring(i, i+2));
+            // 두글자씩 자르기 (0,2)(1,3)(2,4)(3,5)(4,6)
             //월리가 있는지 체크
+            // findWally의 length는 60
+            // 마지막 인덱스는 59
+//            System.out.println(i); // 마지막 i가 59 -> 마지막이 58이 되도록 수정
+
             if(findWally.substring(i, i+2).equals("월리")){
                 // 월리가 있으면 숫자올리기
                 cntWally++;
@@ -45,6 +50,7 @@ public class Submit03 {
         }
         System.out.println(cntWally);
 
+        System.out.println("\n========================\n");
 
 //        Q. 03 거꾸로 트리를 5층 만들어주세요.
 
@@ -52,7 +58,12 @@ public class Submit03 {
 
 //        Hint
 //        for문 내에서 .substring() 사용
-        String stars = "*****"; //
+        String stars = "*****";
+        // ***** -> stars.substring(0, 5) or stars.substring(0)
+        // ****  -> stars.substring(1, 5) or stars.substring(1)
+        // ***   -> stars.substring(2, 5) or stars.substring(2)
+        // **    -> stars.substring(3, 5) or stars.substring(3)
+        // *     -> stars.substring(4, 5) or stars.substring(4)
         // 5, 4, 3, 2, 1 나오게 하기
         for(int i = 5; i > 0; i--){
 
@@ -74,9 +85,11 @@ public class Submit03 {
         String reVerse = "로꾸꺼 로꾸꺼";
         // 맨뒤의 글자를 자르기
         // 잘라서 새로운 문자열에 넣기
+        // reVerse.length() // 7글자
         String name ="";
-        for(int i = 7; i > 0; i--){
+        for(int i = reVerse.length(); i > 0; i--){
             name += reVerse.substring(i-1, i);
+            System.out.println(i + ": " + name);
         }
         System.out.println("거꾸로 뒤집을 문자열: " + reVerse);
         System.out.println("뒤집은 결과: " + name);
