@@ -38,6 +38,13 @@ public class sumit04 {
             }else if(Math.abs(elevatorA - Integer.parseInt(command)) == Math.abs((elevatorB - Integer.parseInt(command)))){
                 System.out.println("승강기 A가 " + command + "층으로 이동하였습니다.");
                 elevatorA = Integer.parseInt(command);
+                if(elevatorA > elevatorB){
+                    System.out.println("승강기 A가 " + command + "층으로 이동하였습니다.");
+                    elevatorA = Integer.parseInt(command);
+                }else{
+                    System.out.println("승강기 B가 " + command + "층으로 이동하였습니다.");
+                    elevatorB = Integer.parseInt(command);
+                }
 
             }else{
                 System.out.println("승강기 B가 " + command + "층으로 이동하였습니다.");
