@@ -11,7 +11,7 @@ public class sumit04 {
         int elevatorA = 10;
         int elevatorB = 4;
 
-        outer: while(true) {
+        while(true) {
             System.out.println("==========희영빌딩 엘리베이터========");
             System.out.println("승강기 A의 현재 위치: " + elevatorA);
             System.out.println("승강기 B의 현재 위치: " + elevatorB);
@@ -27,22 +27,23 @@ public class sumit04 {
 
             String command = scan.nextLine();;
 
-            while(true){
-                if((elevatorA - Integer.parseInt(command)) > (elevatorB - Integer.parseInt(command)) ){
-                    System.out.println("승강기 B가 " + command + "층으로 이동하였습니다.");
-                    break;
-                }
-                if((elevatorA - Integer.parseInt(command)) < (elevatorB - Integer.parseInt(command)) * -1){
-                    System.out.println("승강기 A가 " + command + "층으로 이동하였습니다.");
-                    break;
-                }
-
-                if(command.equals("q") || command.equals("exit")){
-                    System.out.println("프로그램이 종료 되었습니다.");
-                    break ;
-                }
+            if(command.equals("q") || command.equals("exit")){
+                System.out.println("프로그램이 종료 되었습니다.");
+                break;
             }
+            if(Math.abs(elevatorA - Integer.parseInt(command)) < Math.abs((elevatorB - Integer.parseInt(command)))){
+                System.out.println("승강기 A가 " + command + "층으로 이동하였습니다.");
+                elevatorA = Integer.parseInt(command);
 
+            }else if(Math.abs(elevatorA - Integer.parseInt(command)) == Math.abs((elevatorB - Integer.parseInt(command)))){
+                System.out.println("승강기 A가 " + command + "층으로 이동하였습니다.");
+                elevatorA = Integer.parseInt(command);
+
+            }else{
+                System.out.println("승강기 B가 " + command + "층으로 이동하였습니다.");
+                elevatorB = Integer.parseInt(command);
+
+                }
 
         }
     }
