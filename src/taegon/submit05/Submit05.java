@@ -10,6 +10,7 @@ public class Submit05 {
 //                n층 짜리 트리를 출력할 수 있는 makeTree(int n) 메소드를 만들어서 실행시켜 주세요.
 
         makeTree(5);
+        makeTree(7);
 
 //        로꾸꺼를 메소드로 만들어서
 //        파라미터로 들어온 String 문자열에 대해 뒤집은 결과를 리턴하는 메소드를 만들어보세요.
