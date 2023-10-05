@@ -355,7 +355,7 @@ public class LoopFor {
                     stars1 += "*";
                 }
             }
-            System.out.println(blank1 + stars1 + blank1);
+            System.out.println(blank1 + stars1);
         }
 
 
