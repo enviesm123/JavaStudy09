@@ -1,5 +1,7 @@
 package taegon.submit06;
 
+import ch07_array.ArrayMain;
+
 import java.util.Arrays;
 
 public class Submit06 {
@@ -28,6 +30,7 @@ public class Submit06 {
         System.out.println("이씨 성을 가진 배우가 총 " + cnt + "명 있습니다");
 
 
+        System.out.println("\n=================\n");
 
 
 
@@ -40,17 +43,20 @@ public class Submit06 {
 
 //        Hint
 //        for문 바깥에 int 변수 하나 선언해둔 뒤, for문을 돌리면서 각각의 요소가 int 변수보다 큰지 비교
-        int temp = 0;
-        for(int i =0; i < intArr.length; i++){
+        int max = intArr[0];
+        int min = intArr[0];
+        for(int i = 0; i < intArr.length; i++){
             // 크다면 int 변수에 해당 요소의 값 저장
             // 최대값
-            if(temp < intArr[i]){
-                temp = intArr[i];
+            if(max < intArr[i]){
+                 max = intArr[i];
+
+            }else if( min > intArr[i]){
+                min = intArr[i];
             }
         }
-        temp = intArr * -1;
-        System.out.println("최대값: "+ temp);
-
+        System.out.println("최소값: " + min);
+        System.out.println("최댓값: " + max);
 
 //
 //        Q. 03
