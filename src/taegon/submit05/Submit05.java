@@ -15,6 +15,8 @@ public class Submit05 {
 //        로꾸꺼를 메소드로 만들어서
 //        파라미터로 들어온 String 문자열에 대해 뒤집은 결과를 리턴하는 메소드를 만들어보세요.
 
+        System.out.println("\n========================\n");
+
         String example = "로꾸꺼 로꾸꺼";
         String result = reverseStr(example);
         System.out.println(result);
@@ -27,9 +29,71 @@ public class Submit05 {
 //        2로 나눈 몫이 1이 된다면 반복을 종료한다.
 //        이진수로 만들어진 문자열 변수를 거꾸로(로꾸꺼) 뒤집은 다음 리턴한다.
 
+        System.out.println("\n========================\n");
 
         String myBinaryStr = makeBinary(23);
         System.out.println(myBinaryStr);
+
+
+        System.out.println("\n========================\n");
+
+//           *
+//          * *
+//         *   *
+//        *******
+        // i=0, blank=3, star=1
+        // i=1, blank=2, star=1, blank=1, star=1
+        // i=2, blank=1, star=1, blank=3, star=1
+        // i=3, blank=0, star=7
+//           *
+//          * *
+//         *   *
+//        *     *
+//       *********
+        // i=0, blank=4, star=1
+        // i=1, blank=3, star=1, blank=1, star=1
+        // i=2, blank=2, star=1, blank=3, star=1
+        // i=3, blank=1, star=1, blank=5, star=1
+        // i=4, blank=0, star=9
+
+
+        for (int i = 0; i < 5; i++) {
+            // 1.공백을 먼저 찍기
+            // 5번 반복하게 하기
+            String leftBlank = "";
+            for (int j = 0; j < 4 - i; j++) {
+                // 공백 숫자
+                // 4
+                // 3
+                // 2
+                // 1
+                // 0 마지막 줄은 공백이 없다 4번만 반복
+                leftBlank += " ";
+
+            }
+            if(i == 0){
+                // 맨위층
+                System.out.println(leftBlank + "*");
+            }else if(i == 4){
+                // 맨 아래층
+                String star = "";
+                for(int s = 0; s < 9; s++){
+                    star += "*";
+                    System.out.println(star);
+                }
+            }else{
+                // 중간층
+                String innerBlank = "";
+                for(int b = 0; b < i*2 -1; b++){
+                    innerBlank += " ";
+                    System.out.println(innerBlank);
+                }
+            }
+
+
+
+        }
+
 
 
 
@@ -84,9 +148,9 @@ public class Submit05 {
     public static String reverseStr(String example) {
         // 맨뒤의 글자를 자르기
         String word = "";
-        for (int i = example.length()-1; i >= 0; i--) {
+        for (int i = example.length(); i > 0; i--) {
             // 잘라서 새로운 문자열에 넣기
-            word += example.substring(i, i+1);
+            word += example.substring(i-1, i);
         }
         // reVerse.length() // 7글자
         return word;

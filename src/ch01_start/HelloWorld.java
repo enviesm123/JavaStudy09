@@ -22,27 +22,6 @@ public class HelloWorld {
         System.out.println();
 
 
-        for (int i = 0; i < 5; i++) {
-            // n 번 반복
-            String blank = "";
-            for (int k = 0; k < 5 - i; k++) {
-                // 빈칸먼저 그리기
-                // 4
-                // 3
-                // 2
-                // 1
-                blank += " ";
-            }
-
-            // 별찍
-            String stars = "";
-            for (int k = 0; k < (i * 2) + 1; k++) {
-                stars += "*";
-
-                System.out.println(blank + stars);
-
-            }
-        }
 
 
     }
