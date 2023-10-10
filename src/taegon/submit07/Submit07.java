@@ -46,6 +46,8 @@ public class Submit07 {
         Collections.sort(newNum);
         System.out.println(newNum);
 //       4. 중복을 제거한 정수형 리스트를 내림차순으로 정렬하여 출력하시오.
+        Collections.sort(newNum, Collections.reverseOrder());
+        System.out.println(newNum);
 
 
         System.out.println("\n========================\n");
