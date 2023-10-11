@@ -13,15 +13,16 @@ public class CollectionMap {
         HashMap<String, String> stuMap2 = new HashMap<>();
 
         // 어지간한 경우에 Key값 타입은 String 이다.
+        // HashMap<key , value>
         HashMap<String, Integer> coinMap = new HashMap<>();
 
         // 값 추가
-        // .put(key, value)
+        // .put(key, value) 수정도 가능
         stuMap.put("첫째", "태곤");
         stuMap.put("둘째", "창연");
         stuMap.put("셋째", "성복");
 
-        // Set과 마찬가지로 순서가 보자오디지 않는다.
+        // Set과 마찬가지로 순서가 보장되지 않는다.
         System.out.println(stuMap);
 
         // 중복된 키 값을 허용하지 않는다.
