@@ -312,6 +312,7 @@ public class ArrayMain {
 
 
         // 정렬 (알고리즘)
+        // 버블정
         int[] intArr = {3, 5, 8, 2 ,4, 1};
         for(int k = 0; k < intArr.length - 1; k++){
             for(int i = 0; i < intArr.length - 1; i++){
