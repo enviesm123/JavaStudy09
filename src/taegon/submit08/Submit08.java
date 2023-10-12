@@ -42,14 +42,14 @@ public class Submit08 {
                 System.out.println("로그인 성공");
                 break;
                 // TODO 로그인 아이디 없음
-            }else if(!infoMap.containsKey(inputID)){
+            }else if(infoMap.containsKey(inputID) == false){
                 System.out.println("아이디 없음");
                 // TODO 비밀번호가 틀림
-            }else if(infoMap.containsKey(inputID) && !infoMap.containsValue(inputPw)){
+            }else if(infoMap.containsKey(inputID) && infoMap.containsValue(inputPw) == false){
                 System.out.println("비밀번호 틀렸습니다");
 
             }
-
+//                System.out.println(infoMap.get(inputID).equals(inputPw));
 
 
 
