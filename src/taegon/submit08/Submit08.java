@@ -38,16 +38,19 @@ public class Submit08 {
             String inputPw = scan.nextLine();
 
             // TODO 로그인 성공
-            if(infoMap.containsKey(inputID) && infoMap.containsValue(inputPw)){
-                System.out.println("로그인 성공");
-                break;
+            if(infoMap.containsKey(inputID)){
+                if(infoMap.get(inputID).equals(inputPw)) {
+                    System.out.println("로그인 성공");
+                    break;
+                    // TODO 비밀번호가 틀림
+                }else{
+                    System.out.println("비밀번호 틀렸습니다");
+                }
                 // TODO 로그인 아이디 없음
-            }else if(infoMap.containsKey(inputID) == false){
-                System.out.println("아이디 없음");
-                // TODO 비밀번호가 틀림
-            }else if(infoMap.containsKey(inputID) && infoMap.containsValue(inputPw) == false){
-                System.out.println("비밀번호 틀렸습니다");
-
+            }else{
+                if(infoMap.containsValue(inputPw)) {
+                    System.out.println("아이디 없음");
+                }
             }
 //                System.out.println(infoMap.get(inputID).equals(inputPw));
 
