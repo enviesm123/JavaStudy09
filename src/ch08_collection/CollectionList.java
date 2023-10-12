@@ -152,7 +152,7 @@ public class CollectionList {
         System.out.println(intList);
 
 
-        // 버블 정렬
+        // 버블 정렬 (알고리즘)
         int[] intArr = {3, 5, 8, 2 ,4, 1};
         ArrayList<Integer> numList = new ArrayList<>( Arrays.asList(3, 5, 8, 4, 1, 2));
         System.out.println(numList);
@@ -165,6 +165,8 @@ public class CollectionList {
                     // 자리를 바꾼다.
 
                     int tmp = numList.get(i);
+                    // numList.get(i+1) : numList 요소 중 인덱스 i+1 번째값
+                    // i+1 은 for문 내부변수 값
                     numList.set(i, numList.get(i+1));
                     numList.set(i+1, tmp);
                 }
