@@ -39,10 +39,14 @@ public class ProductMain {
                }
             }
         }
+        for(int i = 0; i < elect.size(); i++) {
+            System.out.println(elect.get(i));
+        }
+
         for(int i = 0; i < elect.size(); i++){
             System.out.println(elect.get(i));
-            if("TV".equals()){
-
+            if("TV".equals(elect.get(i))){
+                System.out.println(("TV".equals(elect.get(i))));
             }
         }
 
