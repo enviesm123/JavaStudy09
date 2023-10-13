@@ -11,29 +11,29 @@ public class Submit08 {
         System.out.println(myLotto);
 
         // 로또 시뮬레이션
-        int[] winLotto = {11, 21, 22, 30, 39, 44};
-        int num = 0;
-        while (true) {
-            num++;
-            // 로또 한장 구매
-            ArrayList<Integer> lotto = makeLotto();
-
-            int cnt = 0;
-            for (int i = 0; i < lotto.size(); i++) {
-                if (winLotto[i] == lotto.get(i)) {
-                    cnt++;
-                }
-            }
-            if (cnt == 6) {
-                System.out.println("당첨!!");
-                System.out.println(num + "회 구매");
-                System.out.println((num * 1000L) + "원 씀");
-                break;
-
-            } else {
-                System.out.println(cnt + "개 맞춤. 현재" + num + "회 구매");
-            }
-        }
+//        int[] winLotto = {11, 21, 22, 30, 39, 44};
+//        int num = 0;
+//        while (true) {
+//            num++;
+//            // 로또 한장 구매
+//            ArrayList<Integer> lotto = makeLotto();
+//
+//            int cnt = 0;
+//            for (int i = 0; i < lotto.size(); i++) {
+//                if (winLotto[i] == lotto.get(i)) {
+//                    cnt++;
+//                }
+//            }
+//            if (cnt == 6) {
+//                System.out.println("당첨!!");
+//                System.out.println(num + "회 구매");
+//                System.out.println((num * 1000L) + "원 씀");
+//                break;
+//
+//            } else {
+//                System.out.println(cnt + "개 맞춤. 현재" + num + "회 구매");
+//            }
+//        }
 
         // winLotto와 lotto의 숫자 6개가 일치하는지 확인
         // winLotto와 각 인덱스 자리의 숫자가 일치하는 개수카운트
@@ -67,21 +67,27 @@ public class Submit08 {
                 String inputPw = scan.nextLine();
 
                 // TODO 로그인 성공
-                if (infoMap.containsKey(inputID)) {
-                    if (infoMap.get(inputID).equals(inputPw)) {
-                        System.out.println("로그인 성공");
-                        break;
-                        // TODO 비밀번호가 틀림
-                    } else {
-                        System.out.println("비밀번호 틀렸습니다");
-                    }
-                    // TODO 로그인 아이디 없음
-                } else {
-                    System.out.println("아이디 없음");
-
-                }
+//                if (infoMap.containsKey(inputID)) { // (infoMap.get(inputID != null) = infoMap.containsKey(inputID)
+//                    if (infoMap.get(inputID).equals(inputPw)) {
+//                        System.out.println("로그인 성공");
+//                        break;
+//                        // TODO 비밀번호가 틀림
+//                    } else {
+//                        System.out.println("비밀번호 틀렸습니다");
+//                    }
+//                    // TODO 로그인 아이디 없음
+//                } else {
+//                    System.out.println("아이디 없음");
+//
+//                }
 //                System.out.println(infoMap.get(inputID).equals(inputPw));
 
+                if(inputPw.equals(infoMap.get(inputID))){
+                    System.out.println("로그인 성공");
+                    break;
+                }else{
+                    System.out.println("아이디 혹은 비밀번호가 틀렸습니다.");
+                }
 
 //        아이디와 비밀번호가 infoMap 내에 존재하는 데이터와 일치하면 로그인 성공 출력
 
