@@ -10,6 +10,9 @@ public class Submit08 {
         ArrayList<Integer> myLotto = makeLotto();
         System.out.println(myLotto);
 
+        // 로또 시뮬레이션
+
+
         System.out.println("\n======================\n");
 
 //        Q. 02
