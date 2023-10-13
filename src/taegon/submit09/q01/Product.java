@@ -1,5 +1,9 @@
 package taegon.submit09.q01;
 
+import taegon.submit09.q02.Fish;
+
+import java.util.ArrayList;
+
 public class Product {
     String name;
     int price;
@@ -7,16 +11,14 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        return "제품명: " + name +
+                ", 가격: " + price;
     }
 
     public Product() {
     }
 
-    public Product(String pdName, int price) {
+    public Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -36,5 +38,10 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
-}
+
+
+
+
+    }
+
 
