@@ -39,6 +39,10 @@ public class Fish {
 
     public ArrayList<Fish> fishing(){
         ArrayList<Fish> fish = new ArrayList<>();
+        boolean isRun = true;
+
+
+        while(isRun){
             int randInt = (int) (Math.random() * 6) + 1;
             if (randInt == 1) {
                 fish.add(new Fish("고등어", 5000));
@@ -62,6 +66,9 @@ public class Fish {
                 fish.add(new Fish("다금바리", 120000));
                 System.out.println("다금바를 잡았다!!");
             }
+            isRun = false;
+        }
+
             return fish;
 
     }
