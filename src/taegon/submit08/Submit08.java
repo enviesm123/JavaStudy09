@@ -48,9 +48,8 @@ public class Submit08 {
                 }
                 // TODO 로그인 아이디 없음
             }else{
-                if(infoMap.containsValue(inputPw)) {
                     System.out.println("아이디 없음");
-                }
+
             }
 //                System.out.println(infoMap.get(inputID).equals(inputPw));
 
