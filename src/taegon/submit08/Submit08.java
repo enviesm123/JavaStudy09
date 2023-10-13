@@ -75,7 +75,7 @@ public class Submit08 {
 //        먼저 빈 HashSet을 하나 만들고, while문 내에서 빈 HashSet에 랜덤 로또 번호를 HashSet의 사이즈가 6개가 될 때까지 넣는다.
         HashSet<Integer> lotto = new HashSet<>();
         int randInt = 0;
-        while(lotto.size() < 7){
+        while(lotto.size() < 6){
             randInt = (int)(Math.random() * 45) + 1;
             lotto.add(randInt);
         }
