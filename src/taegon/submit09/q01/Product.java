@@ -5,8 +5,8 @@ import taegon.submit09.q02.Fish;
 import java.util.ArrayList;
 
 public class Product {
-    String name;
-    int price;
+    private String name; /* 제품명 */
+    private int price;  /* 제품가격 */
 
 
     @Override

@@ -39,13 +39,19 @@ public class ProductMain {
                }
             }
         }
+
+
         int match = 0;
         for(int i = 0; i < elect.size(); i++) {
+            // elect.get(i) -> Product 객체가 튀어나옴
+            // elect.get(i).getName() 이 TV인 것을 찾아야 한다.
             System.out.println(elect.get(i));
             if(elect.get(i).getName() == "TV"){
                 match = i;
             }
         }
+        System.out.println("\n========================\n");
+
         System.out.println(match);
 
 
