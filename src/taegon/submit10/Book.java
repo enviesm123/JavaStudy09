@@ -15,6 +15,7 @@ public class Book {
         this.rent = false;
     }
 
+
     @Override
     public String toString() {
         return "Book{" +
