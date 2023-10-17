@@ -1,5 +1,8 @@
 package taegon.submit10;
 
+import ch09_class.homepage.MemberDB;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LibraryMain {
@@ -18,7 +21,13 @@ public class LibraryMain {
 //※ strBooks 문자열을 하나하나 쪼개서 Book객체를 만들고 bookList에 담아주세요.
 //
 //        책 입고, 책 대여, 책 목록조회, 책 검색을 할 수 있도록 프로그램을 만들어주세요.
+
+        // 싱글톤
+        Library library = Library.getInstance();
         Scanner scan = new Scanner(System.in);
+
+
+
 
         while(true){
             System.out.println("행동을 입력해 주세요");
@@ -27,15 +36,31 @@ public class LibraryMain {
 
             int command = Integer.parseInt(scan.nextLine());
 
+
             if(command == 1){
                 // 책 입고
+                System.out.println("입고할 책의 이름을 입력해주세요.");
+                System.out.print(">>> ");
+
+                String addBook = scan.nextLine();
+                library.addBook(addBook);
+
 
             }else if(command == 2){
                 // 책 대여
+                library.showList();
+                System.out.println("대여할 책의 번호를 입력해주세요.");
+                System.out.print(">>> ");
+
+                int inputRent = Integer.parseInt(scan.nextLine());
+
+                library.bookRent(inputRent);
 
             }else if(command == 3){
                 // 책 목록조회
-                Library.showList();
+
+                library.showList();
+
 
             }else if(command == 4){
                 // 책 검색

@@ -9,6 +9,12 @@ public class Book {
 
     }
 
+    public Book(int no, String name) {
+        this.no = no;
+        this.name = name;
+        this.rent = false;
+    }
+
     public Book(int no, String name, boolean rent) {
         this.no = no;
         this.name = name;
@@ -16,12 +22,14 @@ public class Book {
     }
 
 
+
+
     @Override
     public String toString() {
         return "Book{" +
-                "no=" + no +
-                ", name='" + name + '\'' +
-                ", rent=" + rent +
+                " no. " + no +
+                "| 도서명:" + name +
+                "| 대여여부: " + rent +
                 '}';
     }
 
