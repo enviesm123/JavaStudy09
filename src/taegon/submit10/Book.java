@@ -3,7 +3,7 @@ package taegon.submit10;
 public class Book {
     private int no;         /* 도서 번호 */
     private String name;    /* 도서 제목*/
-    private boolean rent;   /* 대여여부 */
+    private boolean isBorrow;   /* 대여여부 */
 
     public Book() {
 
@@ -12,13 +12,15 @@ public class Book {
     public Book(int no, String name) {
         this.no = no;
         this.name = name;
-        this.rent = false;
+        isBorrow = false;
+
     }
 
     public Book(int no, String name, boolean rent) {
         this.no = no;
         this.name = name;
-        this.rent = false;
+        this.isBorrow = rent;
+
     }
 
 
@@ -26,11 +28,17 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                " no. " + no +
-                "| 도서명:" + name +
-                "| 대여여부: " + rent +
-                '}';
+
+        String state = "[책번호: " + no +
+                ", 책제목: " + name + ", 대여상태: : " + "입고중]";
+        if(isBorrow){
+            state = "[책번호: " + no +
+                    ", 책제목: " + name + ", 대여상태: : " + "대여중]";
+        }else{
+            state = "[책번호: " + no +
+                    ", 책제목: " + name + ", 대여상태: : " + "입고중]";
+        }
+        return state;
     }
 
     public int getNo() {
@@ -49,11 +57,13 @@ public class Book {
         this.name = name;
     }
 
-    public boolean isRent() {
-        return rent;
+    public boolean isBorrow() {
+        return isBorrow;
     }
 
-    public void setRent(boolean rent) {
-        this.rent = rent;
+    public void setBorrow(boolean borrow) {
+        isBorrow = borrow;
     }
+
+   
 }

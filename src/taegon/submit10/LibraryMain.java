@@ -1,6 +1,6 @@
 package taegon.submit10;
 
-import ch09_class.homepage.MemberDB;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -26,20 +26,17 @@ public class LibraryMain {
         Library library = Library.getInstance();
         Scanner scan = new Scanner(System.in);
 
-
-
-
         while(true){
             System.out.println("행동을 입력해 주세요");
-            System.out.println("1. 책 입고 | 2. 책 대여 | 3. 책 목록조회 | 4. 책검색");
+            System.out.println("1. 책 추가 | 2. 책 반납 | 3. 책 대여 | 4. 책 목록조회 | 5. 책검색 | 6. 종료" );
             System.out.print(">>>");
 
             int command = Integer.parseInt(scan.nextLine());
 
 
             if(command == 1){
-                // 책 입고
-                System.out.println("입고할 책의 이름을 입력해주세요.");
+                // 책 추가
+                System.out.println("추가할 책의 이름을 입력해주세요.");
                 System.out.print(">>> ");
 
                 String addBook = scan.nextLine();
@@ -47,23 +44,51 @@ public class LibraryMain {
 
 
             }else if(command == 2){
-                // 책 대여
-                library.showList();
-                System.out.println("대여할 책의 번호를 입력해주세요.");
+                // 책 반납
+                System.out.println("반납할 책의 번호를 입력해주세요.");
                 System.out.print(">>> ");
 
-                int inputRent = Integer.parseInt(scan.nextLine());
+                int no = Integer.parseInt(scan.nextLine());
 
-                library.bookRent(inputRent);
+                library.returnBook(no);
 
-            }else if(command == 3){
-                // 책 목록조회
 
-                library.showList();
+            } else if(command == 3){
+                // 책 대여
+                System.out.println("책 이름을 입력해 주세요.");
+                System.out.print(">>> ");
+
+                String keyword = scan.nextLine();
+                library.searchBook(keyword);
+
+                library.searchAndRent(keyword, scan);
+
+
+
+
+
 
 
             }else if(command == 4){
+                // 책 목록조회
+
+                library.printBook();
+
+
+            }else if(command == 5){
                 // 책 검색
+                System.out.println("책 이름을 입력해 주세요.");
+                System.out.print(">>> ");
+
+                String keyword = scan.nextLine();
+
+                library.searchBook(keyword);
+
+            }else if(command == 6){
+                // 종료
+                System.out.println("종료 합니다.");
+                break;
+
 
             }else{
                 System.out.println("잘못 입력하셨습니다");
