@@ -1,40 +1,27 @@
 package taegon.submit11;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Calculator {
-    private int num;            /* 계산할 첫번째 숫자 */
-    private String Operator;           /* 연산종류 */
 
-    public Calculator(int num, int num2) {
-        this.num = num;
-        this.Operator = Operator;
+
+    public static double add(double num1, double num2){
+        return num1 + num2;
+    }
+    public static double minus(double num1, double num2){
+        return num1 - num2;
+    }
+    public  static double division(double num1, double num2){
+        return num1 / num2;
+    }
+    public static double multiple(double num1, double num2) {
+            return num1 * num2;
+
+        }
+
+
+
     }
 
-    public Calculator() {
-    }
-
-    @Override
-    public String toString() {
-        return "calculator{" +
-                "num=" + num +
-                ", num2=" + Operator +
-                '}';
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-    public String getOperator() {
-        return Operator;
-    }
-
-    public void setOperator(String Operator) {
-        this.Operator = Operator;
-    }
-}
 
 
