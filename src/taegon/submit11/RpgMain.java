@@ -72,11 +72,7 @@ public class RpgMain {
                         int itemList = Integer.parseInt(scan.nextLine());
 
                         for(int j = 0; j < inventory.size();j++){
-                            if(itemList == inventory.get(i).getNum()){
 
-
-
-                            }
 
                         }
                     }
