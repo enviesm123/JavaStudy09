@@ -1,4 +1,4 @@
-package taegon.submit11;
+package taegon.submit10.calculator;
 
 import java.util.Scanner;
 

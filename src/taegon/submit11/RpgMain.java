@@ -8,92 +8,89 @@ public class RpgMain {
 
         Scanner scan = new Scanner(System.in);
         Character character = Character.getInstance();
-        ArrayList<State> user = new ArrayList<>();
-        ArrayList<Item> inventory = new ArrayList<>();
-        inventory.add(new Item("단검", 500, Item.getGrade()));
-
-        System.out.println("RPG에 오신걸 환영합니다!!");
 
 
+
+        System.out.println("                                                                                                 \n" +
+                "                                                                                                 \n" +
+                "||   / |  / /                                                              //   / /     //   ) ) \n" +
+                "||  /  | / /      ___        ___        ___        ___         __         //   / /     //___/ /  \n" +
+                "|| / /||/ /     //___) )   //   ) )   //   ) )   //   ) )   //   ) )     //   / /     / ____ /   \n" +
+                "||/ / |  /     //         //   / /   //___/ /   //   / /   //   / /     //   / /     //          \n" +
+                "|  /  | /     ((____     ((___( (   //         ((___/ /   //   / /     ((___/ /     //           \n");
+
+        System.out.println("                                                             \n" +
+                "                                                             \n" +
+                "                          //   ) )     //   ) )     //   ) ) \n" +
+                "                         //___/ /     //___/ /     //        \n" +
+                "                        / ___ (      / ____ /     //  ____   \n" +
+                "                       //   | |     //           //    / /   \n" +
+                "                      //    | |    //           ((____/ /    \n");
+        System.out.println("================");
+        System.out.println("캐릭터를 생성해 주세요");
+        System.out.print("닉네임 >>> ");
+        String name = scan.nextLine();
+
+        // 캐릭터 생성
+        character.setName(name);
+        System.out.println(name + "님 환영합니다!!!");
+        System.out.println("_____________________________________________________________________________________________\n" +
+                "  _      _                                                                          /      / \n" +
+                "  |  |  /                    /                                                     /      /  \n" +
+                "--|-/|-/----------__--------/---------__---------__--------_--_---------__--------/------/---\n" +
+                "  |/ |/         /___)      /        /   '      /   )      / /  )      /___)      /      /    \n" +
+                "__/__|_________(___ ______/________(___ ______(___/______/_/__/______(___ ______o______o_____\n" +
+                "                                                                                             \n" +
+                "                                                                                             \n");
+
+
+        System.out.println("=============게임 설명=============");
+        System.out.println("=================================");
+        System.out.println("대장간에서 무기를 구매 해보세요");
+        System.out.println("강화를 하고 팔아서 골드를 획득 해보세요.");
+
+
+        // 게임 루프
+        boolean isRun = true;
+        while (isRun) {
             System.out.println("================");
-            System.out.println("캐릭터를 생성해 주세요");
-            System.out.print("이름 >>> ");
-
-            String name = scan.nextLine();
-
-            System.out.println("직업 >>> 1. 전사 | 2. 궁수 | 3. 마법사 ");
-            System.out.print(">>> ");
-
-            String job = scan.nextLine();
-
-            user.add(new State(name, job));
-            System.out.println(name + "님 가입을 환영합니다!!");
-
-            for(int i = 0; i < user.size(); i++){
-                System.out.println(user.get(i));
-        while(true) {
-            System.out.println("이동하기");
-            System.out.println("1. 마을 | 2. 종료");
-            System.out.print(">>> ");
-
-            int command = Integer.parseInt(scan.next());
-
-            if (command == 1) {
-                // 마을  휴식,상점
-                System.out.println("==마을==");
-                System.out.println("1. 휴식 | 2. 상점 | 3. 떠나기");
-
-                int command2 = Integer.parseInt(scan.next());
-
-                if (command2 == 1) {
-                    // 휴식
-                    for(State stat : user){
-                        stat.setHp(100);
-                        System.out.println("체력이 모두 회복되었습니다");
-                        System.out.println("HP: " + stat.getHp());
-                    }
-                } else if (command2 == 2) {
-                    // 상점 목록보여주고 1.팔기 2.떠나기
-                    System.out.println("==상점==");
-                    System.out.println("1. 팔기 | 2.떠나기");
-                    System.out.print(">>> ");
-
-                    int commandShop = Integer.parseInt(scan.next());
-
-                    if(commandShop == 1){
-                        // 아이템 팔기
-                        for(int k = 0 ; k < inventory.size(); k++){
-
-                            System.out.println("내인벤토리 목록");
-                            System.out.println("[" + (i+1) + "] " + inventory.get(i));
-                        }
-                        System.out.print(">>> ");
-
-                        int itemList = Integer.parseInt(scan.nextLine());
-
-                        for(int j = 0; j < inventory.size();j++){
+            System.out.println("1. 대장간");
+            System.out.println("2. 인벤토리");
+            System.out.println("3. 종료");
+            System.out.print("선택 >>> ");
+            int choice = scan.nextInt();
 
 
-                        }
-                    }
+            while (isRun) {
 
 
+                if (choice == 1) {
+                    // 대장간 (무기 구매, 무기 판매 등)
+                    Character.forge(character);
+
+
+                } else if (choice == 2) {
+                    // 인벤토리 목록
+                    Weapon.invenList(character);
+                    break;
+                } else if (choice == 3) {
+
+                    System.out.println("게임을 종료합니다.");
+
+                    isRun = false;
+                    break;
                 } else {
-                    continue;
+                    System.out.println("다시 선택 해주세요.");
+                    break;
                 }
-
-            } else if (command == 2) {
-
-                System.out.println("다음에 또봐요");
-                break;
             }
-
         }
-
-        }
-
-
-
 
     }
+
+
+
+
+
+
 }
