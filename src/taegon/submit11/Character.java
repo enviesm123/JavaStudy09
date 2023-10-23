@@ -46,45 +46,44 @@ public class Character {
     public static void forge(Character character) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("================");
-        System.out.println("대장간에 오신 것을 환영합니다!");
-        System.out.println("1. 무기 구매");
-        System.out.println("2. 무기 판매");
-        System.out.println("3. 무기 강화");
-        System.out.println("4. 돌아가기");
-        System.out.print("선택 >>> ");
-        int choice = scan.nextInt();
 
 
-        boolean isBye = true;
-        while (isBye) {
+
+
+            System.out.println("================");
+            System.out.println("대장간에 오신 것을 환영합니다!");
+            System.out.println("1. 무기 구매");
+            System.out.println("2. 무기 판매");
+            System.out.println("3. 무기 강화");
+            System.out.println("4. 돌아가기");
+            System.out.print("선택 >>> ");
+            int choice = scan.nextInt();
 
             if (choice == 1) {
                 // 무기 구매
                 buyWp(character);
-                break;
+
 
             } else if (choice == 2) {
                 // 무기 판매
                 sellWp(character);
-                break;
+
             } else if (choice == 3) {
                 // 무기 강화
                 upWp(character);
-                break;
+
             } else if (choice == 4) {
                 // 돌아가기
                 System.out.println("대장간에서 빠져나갑니다.");
-                isBye = false;
-                break;
+
 
 
 
             } else {
                 System.out.println("잘못 누르셨습니다.");
-                break;
+
             }
-        }
+
     }
     public static void buyWp(Character character) {
 
@@ -147,7 +146,7 @@ public class Character {
             Weapon weapon = inventory.get(i);
             int wpNum = inventory.size() - 1; // 선택한 웨폰의 실제 위치
             Weapon select = inventory.get(wpNum);
-            System.out.println((inventory.size() + 1) + ". " + weapon.getName() + " (공격력: " +
+            System.out.println(inventory.size() + ". " + weapon.getName() + " (공격력: " +
                     weapon.getDamage() + ", 강화 레벨: " + weapon.getWplevel() + " 판매가격: " +
                     select.getSellPrice() / 2 + ")");
         }
