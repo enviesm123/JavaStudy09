@@ -70,7 +70,7 @@ public class ApiDate {
         // 다양한 날짜 타입 만들기
         // 1. 2023/10/24 11:04:30
         sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        System.out.println(sdf.format(new Date()));
+        System.out.println(sdf.format(new Date())); // sdf.format(원하는 날짜와시간) ex)현재날짜 new Date()
         // 2. 23-10-24 오전 11:04:30
         // 2. 23-10-24 오후 02:04:30
         sdf = new SimpleDateFormat("yy-MM-dd a hh:mm:ss");
@@ -213,25 +213,142 @@ public class ApiDate {
 
 
         sdf = new SimpleDateFormat("yyyy.MM.dd");
+        // 날짜형 문자를 날짜형으로 형변환
         Date welcomeDayDate = sdf.parse(welcomeDay);
         Date togetherDate = sdf.parse(together);
+
 
         long dday = today.getTime() - welcomeDayDate.getTime();
 
         dday = dday / 1000 / 60 / 60 / 24;
 
         // 디데이 계산기
-        // 2023.09.18 에 대해 +36
-        System.out.println("+" + dday);
+        // 이 출력되는 디데이 계산기를 만들어 보기기
+        // 2023.09.18 에 대해 +37
+        System.out.println("학원 온 날짜까지 D-day: +" + dday);
 
-        // 2023.11.03 에 대해 -10
+        // 2023.11.03 에 대해 -9
+        // today에 시/분/초 가 00:00:00 이 되어야함
+        String todayDate = sdf.format(today);
+        System.out.println(todayDate);
+
+        // today <- 2023.10.25 00:00:00
+        today = sdf.parse(todayDate);
+        System.out.println(today);
+
+
         dday = today.getTime() - togetherDate.getTime();
-        dday = (dday / (1000 * 60 * 60 * 24)) - 1;
-        System.out.println(dday);
-        // 이 출력되는 디데이 계산기를 만들어 보기
+        dday = dday / (1000 * 60 * 60 * 24);
+        System.out.println("회식까지 D-day: " + dday);
+
+        // Calendar 날짜 연산
+        Calendar toCal = Calendar.getInstance();
+        System.out.println(sdf.format(toCal.getTime()));
+
+        // 3일 뒤
+        toCal.add(Calendar.DATE, 3);
+        System.out.println(sdf.format(toCal.getTime()));
+
+        // 20일 뒤
+        toCal.add(Calendar.DATE, 20);
+        System.out.println(sdf.format(toCal.getTime()));
+
+        // 7일 전
+        toCal.add(Calendar.DATE, -10);
+        System.out.println(sdf.format(toCal.getTime()));
+
+        // 10달 뒤
+        toCal.add(Calendar.MONTH, 10);
+        System.out.println(sdf.format(toCal.getTime()));
 
 
+        System.out.println("\n===============================\n");
 
+        // 달력 만들기
+
+        int year = 2023;
+        int month = 8;
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month-1, 1);
+        System.out.println(sdf.format(calendar.getTime()));
+
+        // 1일이 무슨 요일에 시작하는지 알아야 함
+        // 1:일, 2:월, 3:화, ..., 7:토
+        int startDay = calendar.get(Calendar.DAY_OF_WEEK);
+        System.out.println(startDay); // 3
+
+        // 해당 월의 마지막 일자가 몇인지 알아야 함
+        int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        System.out.println(lastDay); // 31
+
+        System.out.println(year + "년 " + month + "월 달력");
+        System.out.println("일\t월\t화\t수\t목\t금\t토");
+
+        for(int i = 1; i <= 42; i++){
+            // i가 startDay보다 작으면 출력 안함
+            if(i < startDay){
+                System.out.print("\t");
+            }else{
+                // startDay가 3이라면
+                // i 는 3일때 처음 들어온다.
+                // i = 3 -> 1
+                // i = 4 -> 2
+                // i = 5 -> 3
+
+                // starDay가 4라면
+                // i는 4일때 처음 들어온다.
+                // i = 4 -> 1
+                // i = 5 -> 2
+                // i - startDay + 1
+                int currentDay = i - startDay + 1;
+
+                // currentDay가 lastDay보다 크면 종료
+                if(currentDay > lastDay){
+                    break;
+                }
+
+//                System.out.print(currentDay + "\t");
+                System.out.printf("%2d\t", currentDay);
+            }
+
+            // i 가 7,14,21, .... 일때 줄바꾸기
+            if(i % 7 == 0){
+                System.out.println();
+            }
+        }
+
+        System.out.println("\n===============================\n");
+
+        // 주말이 제외된 달력을 만들어 보기
+
+
+        System.out.println(year + "년 " + month + "월 달력");
+        System.out.println("월\t화\t수\t목\t금");
+
+        for(int i = 1; i <= 42; i++){
+            if(i < startDay && i > 1){
+                // i가 1일때 일요일인데도 탭이 추가된다.
+                System.out.println("\t");
+            }else{
+                int currentDay = i - startDay + 1;
+                if(currentDay > lastDay){
+                    break;
+                }
+                // 숫자를 그리는 부분
+                // 일,토요일은 그리지 않도록
+                // i % 7 == 0 일때 그리지 않는다
+                // 또 i % 7 == 1 일때도 그리지 않는다
+                // i % 7 == 0 또는 i % 7 == 1이 아닌경우에만 그린다.
+                if(!(i % 7 == 0 || i % 7 ==1)){
+                    System.out.printf("%2d\t", currentDay);
+                }
+            }
+            if(i % 7 == 0){
+                System.out.println();
+            }
+
+        }
 
 
 
