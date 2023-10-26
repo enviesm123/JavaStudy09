@@ -75,7 +75,7 @@ public class ApiStringBuffer {
         // 하나의 StringBuffer 객체를 사용할때
         // 쓰레드 A가 StringBuffer의 값을 바꾸는 경우
         // 다른 쓰레드 B, C에서 이를 안다. (안정적)
-        // 단일 쓰레드에서 조금 낮은 성
+        // 단일 쓰레드에서 조금 낮은 성능
 
 
 
