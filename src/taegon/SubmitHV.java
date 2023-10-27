@@ -42,22 +42,21 @@ public class SubmitHV {
         System.out.println(jsonObj);
         JSONArray records = (JSONArray) jsonObj.get("records");
         System.out.println(jsonObj.get("records"));
-        long price = 0;
         String city = "";
+        JSONObject price =(JSONObject)records.get(0);
         for(int i = 0; i < records.size() -1; i++){
-            for(int k = 0; k < records.size() -i -1; k++){
-                JSONObject nm = (JSONObject)records.get(k);
-                JSONObject nm2 = (JSONObject)records.get(k+1);
-                if((long)nm.get("냉면") < (long) nm2.get("냉면")){
-                    price = (long)nm.get("냉면");
+            JSONObject nm = (JSONObject)records.get(i);
+            if((long)price.get("냉면") > (long) nm.get("냉면")){
+                    price.put("냉면", (long) nm.get("냉면"));
                     city = (String)nm.get("시도명");
-                }
+                System.out.println(city + ", "+ "냉면가격: " + price.get("냉면"));
             }
         }
-                    System.out.println(city + ", "+ "냉면가격: " + price);
 
 
 //        7개 도시의 자장면 평균 가격을 계산하여 출력해보세요.
+
+        System.out.println("\n===============================\n");
 
         int sum = 0;
         double avg = 0;
@@ -106,21 +105,21 @@ public class SubmitHV {
 
         System.out.println(menu);
 
-        while(true){
-            System.out.println("16강");
-            System.out.println("메뉴를 선택해주세요");
-            System.out.print(">>> ");
-            int command = Integer.parseInt(scan.nextLine());
-
-            // 랜덤으로 선택지 2개 출
-            if(command == 1){
-                System.out.println(); // 메뉴는 랜덤한것이뜬다.
-                // 목록두개를 빼고 선택된것은 다른 리스트에 추가
-
-            }else if(command ==2){
-
-            }
-        }
+//        while(true){
+//            System.out.println("16강");
+//            System.out.println("메뉴를 선택해주세요");
+//            System.out.print(">>> ");
+//            int command = Integer.parseInt(scan.nextLine());
+//
+//            // 랜덤으로 선택지 2개 출
+//            if(command == 1){
+//                System.out.println(); // 메뉴는 랜덤한것이뜬다.
+//                // 목록두개를 빼고 선택된것은 다른 리스트에 추가
+//
+//            }else if(command ==2){
+//
+//            }
+//        }
 
 
 
