@@ -1,4 +1,4 @@
-package taegon.submit12.Board;
+package taegon.submit12.board;
 
 public class CartoonBoard extends BoardParent {
     private String imgFile;
@@ -16,7 +16,7 @@ public class CartoonBoard extends BoardParent {
     public String toString() {
         return "CartoonBoard{" +
                 "imgFile='" + imgFile + '\'' +
-                '}';
+                '}' + super.toString();
     }
 
     public String getImgFile() {

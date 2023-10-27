@@ -1,4 +1,4 @@
-package taegon.submit12.Board;
+package taegon.submit12.board;
 
 import java.util.ArrayList;
 

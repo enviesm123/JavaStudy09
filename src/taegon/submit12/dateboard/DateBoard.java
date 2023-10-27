@@ -1,4 +1,4 @@
-package taegon.submit12.Date;
+package taegon.submit12.dateboard;
 
 public class DateBoard {
     private String title;

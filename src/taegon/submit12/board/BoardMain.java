@@ -1,4 +1,4 @@
-package taegon.submit12.Board;
+package taegon.submit12.board;
 
 import java.util.Scanner;
 
@@ -23,11 +23,11 @@ public class BoardMain {
                 // 글 쓰기
                 System.out.print("글 제목을 입력해주세요: ");
                 String title = scan.nextLine();
+
                 System.out.print("글 내용을 입력해주세요: ");
                 String content = scan.nextLine();
+
                 board.write(title, content);
-
-
             }else{
                 // 종료
                 System.out.println("종료합니다");

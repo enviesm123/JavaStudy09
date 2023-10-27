@@ -1,4 +1,4 @@
-package taegon.submit12.Board;
+package taegon.submit12.board;
 
 public class AudioBoard extends BoardParent {
    private String audioFile;
