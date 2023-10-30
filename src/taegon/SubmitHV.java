@@ -39,34 +39,38 @@ public class SubmitHV {
 
         JSONParser jsonParser = new JSONParser();
         JSONObject jsonObj = (JSONObject) jsonParser.parse(response);
-        System.out.println(jsonObj);
         JSONArray records = (JSONArray) jsonObj.get("records");
-        System.out.println(jsonObj.get("records"));
-        String city = "";
-        JSONObject price =(JSONObject)records.get(0);
-        for(int i = 0; i < records.size() -1; i++){
-            JSONObject nm = (JSONObject)records.get(i);
-            if((long)price.get("냉면") > (long) nm.get("냉면")){
-                    price.put("냉면", (long) nm.get("냉면"));
-                    city = (String)nm.get("시도명");
-                System.out.println(city + ", "+ "냉면가격: " + price.get("냉면"));
+        System.out.println(records);
+
+        long minPrice = (long)((JSONObject)records.get(0)).get("냉면");
+        for(int i = 0; i < records.size(); i++){
+            JSONObject city = (JSONObject)records.get(i);
+            if(minPrice > (long)city.get("냉면")){
+                minPrice = (long)city.get("냉면");
+            }
+        }
+        System.out.println("냉면 최소값: " + minPrice);
+
+        for(int i = 0; i < records.size(); i++){
+            JSONObject city = (JSONObject)records.get(i);
+            if((long)city.get("냉면") == minPrice){
+                System.out.println("냉면이 제일 싼 도시: " + city.get("시도명"));
             }
         }
 
+        // 자장면 평균 가격 구하기
 
-//        7개 도시의 자장면 평균 가격을 계산하여 출력해보세요.
-
-        System.out.println("\n===============================\n");
-
-        int sum = 0;
-        double avg = 0;
-        for(int i = 0 ; i < records.size(); i++){
-            JSONObject jja = (JSONObject)records.get(i);
-            System.out.println(jja);
-            sum += Double.parseDouble(String.valueOf(jja.get("자장면")));
-            avg = sum / records.size();
+        long totalPrice = 0;
+        for(int i = 0; i < records.size(); i++){
+            JSONObject city = (JSONObject)records.get(i);
+            totalPrice += (long) city.get("자장면");
         }
-        System.out.println(records.size() + "개 도시 자장면 평균 가격: " + avg + "원");
+
+        double avgPrice = totalPrice / records.size();
+
+        System.out.println("7개도시 자장면 평균값: " + avgPrice);
+
+
 
 //        Q.02
 //
@@ -105,21 +109,36 @@ public class SubmitHV {
 
         System.out.println(menu);
 
-//        while(true){
-//            System.out.println("16강");
-//            System.out.println("메뉴를 선택해주세요");
-//            System.out.print(">>> ");
-//            int command = Integer.parseInt(scan.nextLine());
-//
-//            // 랜덤으로 선택지 2개 출
-//            if(command == 1){
-//                System.out.println(); // 메뉴는 랜덤한것이뜬다.
-//                // 목록두개를 빼고 선택된것은 다른 리스트에 추가
-//
-//            }else if(command ==2){
-//
-//            }
-//        }
+        while(true){
+            System.out.println("16강");
+            System.out.println("메뉴를 선택해주세요");
+
+            // 랜덤으로 선택지 2개 출력
+            // 1 에서 16에서 랜덤으로 2개를뽑아서 선택창으로 띄움
+
+            ArrayList<String> menuArr = new ArrayList<>();
+
+                int randInt = (int)Math.random() * 16;
+                menuArr.add(menu.get(randInt));
+                menuArr.add(menu.get(randInt));
+
+
+
+
+            System.out.println("1. " + menuArr.get(0) + " | 2. " + menuArr.get(1));
+
+
+
+            System.out.print(">>> ");
+            int command = Integer.parseInt(scan.nextLine());
+            if(command == 1){
+                System.out.println(); // 메뉴는 랜덤한것이뜬다.
+                // 목록두개를 빼고 선택된것은 다른 리스트에 추가
+
+            }else if(command ==2){
+
+            }
+        }
 
 
 
