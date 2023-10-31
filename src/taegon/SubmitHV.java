@@ -8,10 +8,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class SubmitHV {
@@ -93,6 +90,7 @@ public class SubmitHV {
         ArrayList<String> menu = new ArrayList<>();
         menu.add("짜장면");
         menu.add("짬뽕");
+        menu.add("볶음밥");
         menu.add("김치찌개");
         menu.add("제육볶음");
         menu.add("돈까스");
@@ -105,46 +103,57 @@ public class SubmitHV {
         menu.add("햄버거");
         menu.add("떡볶이");
         menu.add("소고기국밥");
-        menu.add("시래기");
+        menu.add("육개");
 
         System.out.println(menu);
 
-        while(true){
-            System.out.println("16강");
-            System.out.println("메뉴를 선택해주세요");
+        // menu를 랜덤하게 섞기
+        Collections.shuffle(menu);
 
-            // 랜덤으로 선택지 2개 출력
-            // 1 에서 16에서 랜덤으로 2개를뽑아서 선택창으로 띄움
-
-            ArrayList<String> menuArr = new ArrayList<>();
-
-                int randInt = (int)Math.random() * 16;
-                menuArr.add(menu.get(randInt));
-                menuArr.add(menu.get(randInt));
-
-
-
-
-            System.out.println("1. " + menuArr.get(0) + " | 2. " + menuArr.get(1));
-
-
-
-            System.out.print(">>> ");
-            int command = Integer.parseInt(scan.nextLine());
-            if(command == 1){
-                System.out.println(); // 메뉴는 랜덤한것이뜬다.
-                // 목록두개를 빼고 선택된것은 다른 리스트에 추가
-
-            }else if(command ==2){
-
-            }
-        }
+        worldCup(menu);
 
 
 
 
 
     }
+    public static void worldCup(ArrayList<String> menu){
+        Scanner scan = new Scanner(System.in);
+        ArrayList<String> selectList = new ArrayList<>();
+
+        for(int i = 0; i < menu.size(); i += 2){
+            if(menu.size() == 2){
+                System.out.println("결승=====================");
+            }else{
+                System.out.println(menu.size() + "강 ===================");
+            }
+                System.out.println("메뉴를 선택해 주세요");
+                System.out.println("1. " + menu.get(i));
+                System.out.println("2. " + menu.get(i + 1));
+                System.out.print(">>> ");
+
+            int select = Integer.parseInt(scan.nextLine());
+            if(select == 1){
+                selectList.add(menu.get(i));
+            }else{
+                selectList.add(menu.get(i+1));
+            }
+        }
+
+        menu = selectList;
+        if(menu.size() == 1){
+            System.out.println(menu.get(0) + " 우승!!!");
+        }else{
+            // 재귀함수
+            worldCup(menu);
+        }
+
+    }
+
+
+
+
+
     public static String makeUniqueId() throws ParseException {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmssSSS");
