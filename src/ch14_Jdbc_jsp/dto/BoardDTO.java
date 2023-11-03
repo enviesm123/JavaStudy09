@@ -8,6 +8,7 @@ public class BoardDTO {
     private String boId;            /* 작성자ID */
     private String boDate;          /* 작성날짜 */
     private String memName;         /* 작성자닉네임 */
+    private String delYn;
 
     public BoardDTO() {
     }
