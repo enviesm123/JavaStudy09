@@ -11,6 +11,7 @@ import ch14_Jdbc_jsp.service.MemberService;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class JdbcMain {
@@ -23,7 +24,7 @@ public class JdbcMain {
 
         while(true){
             System.out.println("행동을 선택해주세요.");
-            System.out.println("1. 회원가입 | 2. 로그인| 3. 회원목록 | 4. 종료");
+            System.out.println("1. 회원가입 | 2. 로그인 | 3. 회원목록 | 4. 종료");
             System.out.print(">>> ");
 
             int command = Integer.parseInt(scan.nextLine());
@@ -117,15 +118,33 @@ public class JdbcMain {
 
                         }else if(select == 3){
                             // 글 삭제
+                            ArrayList<BoardDTO> boardList = boardService.getBoardList();
+                            for (int i = 0; i < boardList.size(); i++) {
+                                BoardDTO bo = boardList.get(i);
+                                System.out.println("[ " + bo.getBoNo()+ " | " + bo.getBoTitle() + " | "
+                                        +  bo.getMemName() + " | " + bo.getBoDate() + " ]"  );
+                            }
+
+                            System.out.println("삭제할 글번호");
+                            System.out.print(">>> ");
                             int no = Integer.parseInt(scan.nextLine());
 
                             // 해당 글 번호인 게시글의 del_yn = 'Y'로 UPDATE 해주기
-
-
-
-
                             // @ 글 삭제시 해당 게시글이 현재 로그인한 사람이 작성한
                             // 게시글이어야만 삭제 가능
+
+                            for (int i = 0; i < boardList.size(); i++) {
+                                BoardDTO bo = boardList.get(i);
+                                if(login.getMemID().equals(bo.getBoId())){
+                                    boardService.delBoard(no);
+                                }else{
+                                    System.out.println("삭제 할 수 없습니다.");
+                                }
+                            }
+
+
+
+
 
                         }else if(select == 4){
                             // 로그아웃

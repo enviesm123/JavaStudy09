@@ -151,16 +151,28 @@ public class BoardDAO {
 
 
     // 글 삭제 (UPDATE)
-    public int delBoard(Connection conn,) throws SQLException {
+    public int delBoard(Connection conn,int num) throws SQLException {
+
+
         StringBuffer query = new StringBuffer();
-        query.append("UPDATE        ");
-        query.append("     board        ");
-        query.append(" SET        ");
-        query.append("  del_yn = 'Y'      ");
-        query.append("   WHERE     ");
-        query.append("   bo_no = ?     ");
+        query.append("UPDATE             ");
+        query.append("     boards        ");
+        query.append(" SET               ");
+        query.append("  del_yn = 'Y'     ");
+        query.append("   WHERE  1=1      ");
+        query.append(" AND bo_no = ?     ");
+//        query.append(" AND bo_id = ?     ");
+
 
         PreparedStatement ps = conn.prepareStatement(query.toString());
+
+        ps.setInt(1, num);
+
+        int result = ps.executeUpdate();
+
+        ps.close();
+
+        return result;
     }
 
 }
