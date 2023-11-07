@@ -89,6 +89,7 @@ public class BoardDAO {
         PreparedStatement ps = conn.prepareStatement(query.toString());
 
 
+
         int idx = 1;
         ps.setString(idx++,board.getBoTitle());
         ps.setString(idx++,board.getBoContent());

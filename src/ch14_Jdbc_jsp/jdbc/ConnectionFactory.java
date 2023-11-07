@@ -16,7 +16,7 @@ public class ConnectionFactory {
     private String pw;
     private int maxConn;
 
-   private  ConnectionFactory(){
+   public ConnectionFactory(){
        // .properties 파일을 읽을 수 있는 객체 생성
        Properties prop = new Properties();
 

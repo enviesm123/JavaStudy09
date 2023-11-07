@@ -8,7 +8,7 @@ import java.util.Vector;
 // 미리 Connection 객체들을 생성해서 보관하는 클래스
 public class ConnectionPool {
 
-    private ConnectionPool(){
+    public ConnectionPool(){
         initPool();
     }
     private static ConnectionPool instance = new ConnectionPool();
