@@ -84,9 +84,6 @@ public class MedicineDAO {
 
             result.add(medicine);
         }
-
-
-
         rs.close();
         ps.close();
 

@@ -60,6 +60,14 @@ public class DataParsing {
            // 100개의 약들을 데이터베이스 테이블(medicines)에 저장
            medicineService.insertMedicine(medicine);
 
+           // ConnectionPool 이 있기에 반복문에 DB 통신 코드를 박아도 괜찮음
+           // 만약 ConnectionPool이 없었다면?
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
         }
 
 
